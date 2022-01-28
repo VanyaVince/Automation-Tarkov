@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Tarkov.Data;
 using Tarkov.Pages;
 
 namespace Tarkov.Steps
@@ -18,11 +14,11 @@ namespace Tarkov.Steps
 
         public void SelectBook(string bookTitle, string bookLanguage)
         {
-            SwitchLanguageTo("English");
+            SwitchLanguageTo(Language.English);
             _productListeningPage.ClickOnBook(bookTitle, bookLanguage);
         }
 
-        private void SwitchLanguageTo(string language)
+        public void SwitchLanguageTo(string language)
         {
             _productListeningPage.ClickOnLanguageDropdown();
             _productListeningPage.SelectLanguage(language);

@@ -1,20 +1,21 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tarkov.ElementWrapper;
 
 namespace Tarkov.Components
 {
     public class Header
     {
-        private UIElement MerchShowMenuItem => new UIElement(By.XPath("//a[contains(@href,'merch')]"));
+        private string _showMenuLocator = "//ul[contains(@class,'menu')]//a[contains(@href,'{0}')]";
+        private Element LoginButton => new Element(By.XPath("//a[@href='/login']"));
         
-        public void ClickOnMerchItem()
+        public void ClickOnShowMenuOf(string item)
         {
-            MerchShowMenuItem.Click();
+            new Element(By.XPath(string.Format(_showMenuLocator, item.ToLower()))).Click();
+        }
+
+        public bool IsUserLogged()
+        {
+            return LoginButton.IsDisplayed();
         }
     }
 }

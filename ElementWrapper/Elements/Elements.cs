@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tarkov.ElementWrapper
+namespace Tarkov.ElementWrapper.Elements
 {
-    public class UIElement : BaseElement
+    public class Elements : BaseElementsList
     {
-        public UIElement(By locator) : base(locator)
+        public Elements(By locator) :base(locator)
         {
         }
     }

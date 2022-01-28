@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
 using System.Collections.Concurrent;
 using System.Linq;
 
@@ -23,9 +22,10 @@ namespace Tarkov.Driver
 
         public static void InitializeDriver()
         {
-            var chromeBrowser = new ChromeDriver();
-            chromeBrowser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            var options = new ChromeOptions();
+            options.AddArgument("no-sandbox");
 
+            var chromeBrowser = new ChromeDriver(options);
             Driver = chromeBrowser;
         }
 

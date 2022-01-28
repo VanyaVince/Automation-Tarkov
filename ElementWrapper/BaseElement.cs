@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using System;
 using System.Linq;
 using Tarkov.Driver;
 
@@ -8,8 +9,6 @@ namespace Tarkov.ElementWrapper
     public class BaseElement
     {
         protected By _locator;
-        //private IWebElement _element;
-
         protected IWebDriver Driver => WebDriverFactory.Driver;
         protected IWebElement Element => Driver.FindElements(_locator).FirstOrDefault();
 
@@ -50,18 +49,31 @@ namespace Tarkov.ElementWrapper
             WaitForElementToBeExisted();
             return Element.Text;
         }
-        private void WaitElementIsClickable()
+
+        public string GetCssAttributeValue(string value)
+        {
+            WaitForElementToBeExisted();
+            return Element.GetCssValue(value);
+        }
+
+        public bool IsDisplayed()
+        {
+            WaitForElementToBeVisible();
+            return true;
+        }
+
+        protected void WaitElementIsClickable()
         {
             DriverManager.Wait().Until(waiting => { return Element.Enabled; });
         }
 
-        private void WaitForElementToBeVisible()
+        protected void WaitForElementToBeVisible()
         {
             WaitForElementToBeExisted();
             DriverManager.Wait().Until(waiting => { return Element.Displayed; });
         }
 
-        private void WaitForElementToBeExisted()
+        protected void WaitForElementToBeExisted()
         {
             DriverManager.Wait().Until(waiting => { return Driver.FindElements(_locator).Count > 0; });
         }

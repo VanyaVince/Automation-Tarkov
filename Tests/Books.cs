@@ -1,25 +1,19 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using Tarkov.Constant;
+using Tarkov.Data.Book;
 
 namespace Tarkov.Tests
 {
     public class Books : BaseTest
     {
-        private readonly string _bookTitle = "Master of the night";
-        private readonly string _language = "Russian";
         private readonly int _expectedBookPrice = 260;
 
         [Test]
         public void VerifyPriceOfNightMasterBook()
         {
-            HomePageSteps.ProceedToMerchPage();
+            HomePageSteps.ProceedTo(HeaderTitles.Merch);
             StorePageSteps.ProceedToBooksSection();
-            ProductListeningPageSteps.SelectBook(_bookTitle, _language);
+            ProductListeningPageSteps.SelectBook(BookTitle.MasterOfTheNight, BookLanguage.Russian);
 
             Assert.IsTrue(ProductPageSteps.IsProductPriceEqualTo(_expectedBookPrice));
 

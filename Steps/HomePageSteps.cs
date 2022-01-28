@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using Tarkov.Pages;
 
 namespace Tarkov.Steps
@@ -23,9 +18,15 @@ namespace Tarkov.Steps
             _homePage.ClickOnYouTubePlayButton();
         }
 
-        public void ProceedToMerchPage()
+        public void ProceedTo(string section)
         {
-            _homePage.ClickOnMerchShowMenuItem();
+            _homePage.ClickOnShowMenuOf(section);
+            _homePage.SwtichToNewlyOpenedTab();
+        }
+
+        public void ProceedToPreOderPage()
+        {
+            _homePage.ClickOnPreOrderImage();
             _homePage.SwtichToNewlyOpenedTab();
         }
 

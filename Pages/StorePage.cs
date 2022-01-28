@@ -10,7 +10,7 @@ namespace Tarkov.Pages
 {
     public class StorePage
     {
-        private UIElement BooksSection => new UIElement(By.XPath("//img[contains(@src, 'cups')]"));
+        private Element BooksSection => new Element(By.XPath("//img[contains(@src, 'cups')]"));
 
         public void ClickOnBooksSection()
         {
