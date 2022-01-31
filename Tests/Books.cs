@@ -9,14 +9,14 @@ namespace Tarkov.Tests
         private readonly int _expectedBookPrice = 260;
 
         [Test]
+        [Retry(2)]
         public void VerifyPriceOfNightMasterBook()
         {
             HomePageSteps.ProceedTo(HeaderTitles.Merch);
-            StorePageSteps.ProceedToBooksSection();
+            StorePageSteps.ProceedToBooksSection();            
             ProductListeningPageSteps.SelectBook(BookTitle.MasterOfTheNight, BookLanguage.Russian);
 
             Assert.IsTrue(ProductPageSteps.IsProductPriceEqualTo(_expectedBookPrice));
-
         }
     }
 }

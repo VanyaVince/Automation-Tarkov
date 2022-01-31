@@ -7,7 +7,9 @@ namespace Tarkov.Tests
     public class Weapon : BaseTest
     {
         private readonly string _expectedCartridgeOfAK_47M = "5.45x39mm";
+
         [Test]
+        [Retry(2)]
         public void CheckWeaponCatridgeTest()
         {
             HomePageSteps.ProceedTo(HeaderTitles.Wiki);

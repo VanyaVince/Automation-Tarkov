@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using System;
 using System.Linq;
 using Tarkov.Driver;
 
@@ -64,13 +63,13 @@ namespace Tarkov.ElementWrapper
 
         protected void WaitElementIsClickable()
         {
-            DriverManager.Wait().Until(waiting => { return Element.Enabled; });
+            DriverManager.Wait().Until(waiting => { return Element != null && Element.Enabled; });
         }
 
         protected void WaitForElementToBeVisible()
         {
             WaitForElementToBeExisted();
-            DriverManager.Wait().Until(waiting => { return Element.Displayed; });
+            DriverManager.Wait().Until(waiting => { return Element != null && Element.Displayed; });
         }
 
         protected void WaitForElementToBeExisted()

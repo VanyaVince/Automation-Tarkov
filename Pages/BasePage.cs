@@ -14,6 +14,5 @@ namespace Tarkov.Pages
             var windowsCount = Driver.WindowHandles.Count;
             Driver.SwitchTo().Window(Driver.WindowHandles[windowsCount - 1]);
         }
-
     }
 }

@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading;
 using Tarkov.Driver;
 using Tarkov.Steps;
 
@@ -26,7 +27,7 @@ namespace Tarkov
         {
             WebDriverFactory.InitializeDriver();
             Driver.Manage().Window.Maximize();
-            Driver.Navigate().GoToUrl("https://www.escapefromtarkov.com/");
+            Driver.Navigate().GoToUrl("https://www.escapefromtarkov.com");
         }
 
         [TearDown]

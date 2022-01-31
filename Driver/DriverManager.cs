@@ -1,16 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tarkov.Driver
 {
     public class DriverManager
     {
-        
         //TO DO helper for reading properties from the file 
         private static readonly TimeSpan _timeout = TimeSpan.FromSeconds(10);
         private static readonly TimeSpan _pollingInterval = TimeSpan.FromMilliseconds(700);

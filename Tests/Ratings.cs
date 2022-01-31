@@ -9,6 +9,7 @@ namespace Tarkov.Tests
         private readonly int _expectedRecordsNumberDisplayedPerPage = 100;
 
         [Test]
+        [Retry(2)]
         public void SortByPlaytimeValueWithValidLevelTest()
         {
             HomePageSteps.ProceedTo(HeaderTitles.Ratings);

@@ -7,6 +7,7 @@ namespace Tarkov.Tests
     public class Support : BaseTest
     {
         [Test]
+        [Retry(2)]
         public void FindInformationAboutCertainErrorTest()
         {
             HomePageSteps.ProceedTo(HeaderTitles.Support);
